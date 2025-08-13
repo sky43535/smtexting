@@ -5,67 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Terms of Service & Privacy Policy</title>
 <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    margin: 0;
-    padding: 0 1rem;
-    background: #f9f9fb;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+      Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #f4f5f7;
     color: #222;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 16px;
   }
+
+  /* Header */
   header {
     text-align: center;
-    padding: 2rem 0 1rem;
-    border-bottom: 1px solid #ddd;
+    padding: 3rem 1rem 1.5rem;
+    background: linear-gradient(120deg, #4a90e2, #50e3c2);
+    color: #fff;
+    clip-path: ellipse(100% 100% at 50% 0%);
+    position: relative;
   }
   header h1 {
+    font-size: 3rem;
     font-weight: 700;
-    font-size: 2.5rem;
-    margin: 0;
-    color: #4a90e2;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
   header p {
+    font-size: 1.2rem;
     font-weight: 400;
-    font-size: 1.1rem;
-    color: #666;
+    opacity: 0.9;
+  }
+  header span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 300;
     margin-top: 0.5rem;
+    color: rgba(255,255,255,0.85);
   }
+
+  /* Main container */
   main {
-    max-width: 720px;
-    margin: 2rem auto 4rem;
-    background: white;
-    padding: 2rem 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+    max-width: 850px;
+    margin: -2rem auto 4rem;
+    background: #fff;
+    padding: 3rem 3.5rem;
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
   }
+
+  /* Section styling */
+  section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Section headers */
   h2 {
-    color: #2c3e50;
-    margin-top: 2rem;
+    font-size: 1.7rem;
+    color: #1a1a1a;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #4a90e2;
-    padding-bottom: 0.3rem;
+    border-bottom: 3px solid #4a90e2;
+    padding-bottom: 0.4rem;
   }
+
   p {
     margin-bottom: 1rem;
   }
-  ul {
-    margin-left: 1.2rem;
-    margin-bottom: 1rem;
+
+  /* Lists */
+  ul, ol {
+    margin: 0.5rem 0 1.5rem 1.5rem;
   }
+  ul li, ol li {
+    margin-bottom: 0.8rem;
+    position: relative;
+  }
+  ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #4a90e2;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  ol li::before {
+    font-weight: 700;
+    color: #4a90e2;
+  }
+
+  ul ul li, ul ol li, ol ul li, ol ol li {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  ul ul li::before {
+    content: "◦";
+    color: #50e3c2;
+  }
+
+  /* Links */
   a {
     color: #4a90e2;
     text-decoration: none;
+    font-weight: 500;
   }
   a:hover {
     text-decoration: underline;
   }
+
+  /* Footer */
   footer {
     text-align: center;
     font-size: 0.9rem;
-    color: #999;
-    padding: 1rem 0;
+    color: #888;
+    padding: 1.5rem 0;
     border-top: 1px solid #ddd;
+    margin-top: 4rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 650px) {
+    main { padding: 2rem 1.5rem; }
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1rem; }
   }
 </style>
 </head>
@@ -73,55 +136,73 @@
 <header>
   <h1>smtexting</h1>
   <p>Terms of Service & Privacy Policy</p>
+  <span>Last Edited: August 13, 2025</span>
 </header>
 <main>
   <section>
     <h2>1. Introduction</h2>
-    <p>
-      Welcome to smtexting. By using our app and services, you agree to comply with and be bound by the following Terms of Service and Privacy Policy. Please read them carefully.
-    </p>
+    <p>Welcome to smtexting. By using our app and services, you agree to comply with and be bound by the following Terms of Service and Privacy Policy. Please read them carefully.</p>
   </section>
 
   <section>
     <h2>2. Terms of Service</h2>
-    <p><strong>Eligibility:</strong> You must be at least 13 years old to use smtexting.</p>
-    <p><strong>Account Responsibility:</strong> You are responsible for maintaining the confidentiality of your account information, including your username and password.</p>
-    <p><strong>User Conduct:</strong> You agree not to misuse smtexting by engaging in harmful, abusive, illegal, or unauthorized behavior.</p>
-    <p><strong>Termination:</strong> We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+    <ul>
+      <li><strong>Eligibility:</strong> You must be at least 13 years old to use smtexting.</li>
+      <li><strong>Account Responsibility:</strong> You are responsible for maintaining the confidentiality of your account information, including your username and password.</li>
+      <li><strong>User Conduct:</strong> You agree not to misuse smtexting by engaging in harmful, abusive, illegal, or unauthorized behavior.
+        <ul>
+          <li>No spamming or advertising.</li>
+          <li>No harassment or threats.</li>
+          <li>Respect intellectual property rights.</li>
+        </ul>
+      </li>
+      <li><strong>Termination:</strong> We reserve the right to suspend or terminate accounts that violate these Terms.</li>
+    </ul>
   </section>
 
   <section>
     <h2>3. Privacy Policy</h2>
-    <p><strong>Information We Collect:</strong></p>
     <ul>
-      <li>Account information such as email, username, and password.</li>
-      <li>Device information and app usage data for improving our services.</li>
-      <li>Messages you send and receive through the app (secured with encryption).</li>
+      <li><strong>Information We Collect:</strong>
+        <ul>
+          <li>Account information such as email, username, and password.</li>
+          <li>Device information and app usage data for improving our services.</li>
+          <li>Messages you send and receive through the app (secured with encryption).</li>
+        </ul>
+      </li>
+      <li><strong>How We Use Your Information:</strong>
+        <ul>
+          <li>To provide and maintain our services.</li>
+          <li>To communicate with you about updates and support.</li>
+          <li>To comply with legal obligations.</li>
+        </ul>
+      </li>
+      <li><strong>Data Security:</strong> We use industry-standard encryption and security practices to protect your data.</li>
+      <li><strong>Data Sharing:</strong> We do not sell or share your personal data with third parties except as required by law.</li>
+      <li><strong>Cookies and Tracking:</strong> Our app may use cookies or similar technologies for functionality and analytics.</li>
     </ul>
-    <p><strong>How We Use Your Information:</strong></p>
-    <ul>
-      <li>To provide and maintain our services.</li>
-      <li>To communicate with you about updates and support.</li>
-      <li>To comply with legal obligations.</li>
-    </ul>
-    <p><strong>Data Security:</strong> We use industry-standard encryption and security practices to protect your data.</p>
-    <p><strong>Data Sharing:</strong> We do not sell or share your personal data with third parties except as required by law.</p>
-    <p><strong>Cookies and Tracking:</strong> Our app may use cookies or similar technologies for functionality and analytics.</p>
   </section>
 
   <section>
     <h2>4. Your Rights</h2>
-    <p>You have the right to access, modify, or delete your personal data. You can contact us at <a href="mailto:support@smtexting.app">support@smtexting.app</a> for any data-related requests.</p>
+    <ul>
+      <li>You have the right to access, modify, or delete your personal data.</li>
+      <li>You can contact us at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a> for any data-related requests.</li>
+    </ul>
   </section>
 
   <section>
     <h2>5. Changes to Terms</h2>
-    <p>We may update these Terms and Privacy Policy occasionally. We will notify you of significant changes through the app or email. Continued use means you accept the updated terms.</p>
+    <ul>
+      <li>We may update these Terms and Privacy Policy occasionally.</li>
+      <li>We will notify you of significant changes through the app or email.</li>
+      <li>Continued use means you accept the updated terms.</li>
+    </ul>
   </section>
 
   <section>
     <h2>6. Contact Us</h2>
-    <p>If you have any questions or concerns, please reach out to our support team at <a href="mailto:support@smtexting.app">support@smtexting.app</a>.</p>
+    <p>If you have any questions or concerns, please reach out to our support team at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</p>
   </section>
 </main>
 <footer>

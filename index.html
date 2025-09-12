@@ -3,14 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Terms of Service & Privacy Policy</title>
+<title>Nuvira – Terms & Privacy</title>
 <style>
+  :root {
+    --primary: #a259ff;
+    --secondary: #ff4d6d;
+    --accent: #ffb347;
+    --text: #1a1a1a;
+    --light: #fff;
+    --bg: #faf8fc;
+    --radius: 18px;
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
       Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background: #f4f5f7;
-    color: #222;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.7;
     font-size: 16px;
   }
@@ -18,213 +29,180 @@
   /* Header */
   header {
     text-align: center;
-    padding: 3rem 1rem 1.5rem;
-    background: linear-gradient(120deg, #4a90e2, #50e3c2);
+    padding: 3.5rem 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: #fff;
-    clip-path: ellipse(100% 100% at 50% 0%);
+    border-bottom-left-radius: 45% 12%;
+    border-bottom-right-radius: 45% 12%;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   }
   header h1 {
     font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.8px;
   }
   header p {
     font-size: 1.2rem;
-    font-weight: 400;
-    opacity: 0.9;
+    font-weight: 500;
+    opacity: 0.95;
   }
   header span {
     display: block;
+    margin-top: 0.6rem;
     font-size: 0.9rem;
-    font-weight: 300;
-    margin-top: 0.5rem;
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.9);
   }
 
   /* Main container */
   main {
-    max-width: 850px;
-    margin: -2rem auto 4rem;
-    background: #fff;
-    padding: 3rem 3.5rem;
-    border-radius: 16px;
-    box-shadow: 0 14px 40px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+    max-width: 860px;
+    margin: -2.5rem auto 4rem;
+    background: var(--light);
+    padding: 2.8rem 2.8rem 3.2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.08);
   }
 
-  /* Section styling */
   section {
     margin-bottom: 2.5rem;
     padding: 1.5rem 2rem;
-    border-left: 5px solid #4a90e2;
-    border-radius: 12px;
-    background: #fdfdfd;
-    transition: background 0.3s ease;
+    border-left: 5px solid var(--primary);
+    border-radius: var(--radius);
+    background: #fdfcfe;
+    transition: transform 0.25s ease, background 0.25s ease;
   }
   section:hover {
-    background: #f0f8ff;
+    background: #faf2ff;
+    transform: translateY(-2px);
   }
 
-  /* Section headers */
   h2 {
     font-size: 1.8rem;
-    color: #1a1a1a;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid #4a90e2;
-    padding-bottom: 0.4rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  /* Lists */
-  ul, ol {
-    margin: 0.5rem 0 1.5rem 1.5rem;
-    padding-left: 0;
-  }
-  ul li, ol li {
-    margin-bottom: 0.8rem;
-    position: relative;
-    padding-left: 1.2rem;
-  }
-  ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #4a90e2;
-    font-size: 1.2rem;
-  }
-  ol li::before {
-    content: counter(item) ".";
-    counter-increment: item;
-    position: absolute;
-    left: 0;
-    color: #4a90e2;
     font-weight: 700;
-  }
-  ol { counter-reset: item; }
-
-  /* Sub-lists */
-  ul ul li {
-    content: "◦";
-    color: #50e3c2;
-    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 0.3rem;
   }
 
-  /* Links */
+  p { margin-bottom: 1rem; }
+
+  ul {
+    margin: 0.5rem 0 1.5rem 1.5rem;
+    padding: 0;
+  }
+  ul li {
+    margin-bottom: 0.8rem;
+    list-style-type: disc;
+  }
+
   a {
-    color: #4a90e2;
+    color: var(--secondary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
   }
   a:hover {
     text-decoration: underline;
+    color: var(--accent);
   }
 
-  /* Footer */
   footer {
     text-align: center;
     font-size: 0.9rem;
-    color: #888;
+    color: #666;
     padding: 1.5rem 0;
     border-top: 1px solid #ddd;
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
 
-  /* Responsive adjustments */
   @media (max-width: 650px) {
     main { padding: 2rem 1.5rem; }
-    header h1 { font-size: 2.2rem; }
+    header h1 { font-size: 2.3rem; }
     header p { font-size: 1rem; }
   }
 </style>
 </head>
 <body>
 <header>
-  <h1>smtexting</h1>
+  <h1>Nuvira</h1>
   <p>Terms of Service & Privacy Policy</p>
-  <span>Last Edited: August 13, 2025</span>
+  <span>Last Updated: September 11, 2025</span>
 </header>
 <main>
   <section>
     <h2>1. Introduction</h2>
-    <p>Welcome to smtexting. By using our app and services, you agree to comply with and be bound by the following Terms of Service and Privacy Policy. Please read them carefully.</p>
+    <p>Welcome to Nuvira. By using our app, you agree to these Terms of Service and Privacy Policy. Please read them carefully to understand your rights and responsibilities.</p>
   </section>
 
   <section>
     <h2>2. Terms of Service</h2>
     <ul>
-      <li><strong>Eligibility:</strong> You must be at least 13 years old to use smtexting.</li>
-      <li><strong>Account Responsibility:</strong> You are responsible for maintaining the confidentiality of your account information.
-        <ul>
-          <li>Username and password security</li>
-          <li>Logging out on shared devices</li>
-        </ul>
-      </li>
-      <li><strong>User Conduct:</strong> You agree not to misuse smtexting by engaging in:
-        <ul>
-          <li>Spamming or advertising</li>
-          <li>Harassment or threats</li>
-          <li>Illegal activities</li>
-          <li>Infringing intellectual property rights</li>
-        </ul>
-      </li>
-      <li><strong>Termination:</strong> Accounts violating these Terms may be suspended or terminated.</li>
+      <li><strong>Age Requirement:</strong> You must be at least <strong>17 years old</strong> to use Nuvira.</li>
+      <li><strong>Account Responsibility:</strong> Keep your login details secure. You are responsible for activity under your account.</li>
+      <li><strong>User Conduct:</strong> Do not use Nuvira for harassment, threats, spamming, illegal activity, or intellectual property violations.</li>
+      <li><strong>Termination:</strong> Accounts violating these rules may be suspended or permanently removed.</li>
     </ul>
   </section>
 
   <section>
     <h2>3. Privacy Policy</h2>
     <ul>
-      <li><strong>Information We Collect:</strong>
+      <li><strong>What We Collect:</strong>
         <ul>
-          <li>Account information: email, username, password</li>
-          <li>Device and usage data for improving services</li>
-          <li>Messages sent and received (encrypted)</li>
+          <li>Email, username, and password</li>
+          <li>Device model, iOS version, app version</li>
+          <li>Login and usage activity</li>
+          <li>Screenshot detection events in chats</li>
+          <li>Messages (end-to-end encrypted; we cannot read content)</li>
         </ul>
       </li>
-      <li><strong>How We Use Your Information:</strong>
+      <li><strong>How We Use It:</strong>
         <ul>
-          <li>Provide and maintain services</li>
-          <li>Communicate updates and support</li>
-          <li>Comply with legal obligations</li>
-          <li>Analyze trends to improve app experience</li>
+          <li>To run, improve, and secure our service</li>
+          <li>To communicate app updates and support</li>
+          <li>To meet legal requirements</li>
         </ul>
       </li>
-      <li><strong>Data Security:</strong> Industry-standard encryption and security practices</li>
-      <li><strong>Data Sharing:</strong> No selling or sharing personal data unless required by law</li>
-      <li><strong>Cookies and Tracking:</strong> Functional and analytics purposes only</li>
+      <li><strong>Data Access & Export:</strong> Due to how our system is designed, we cannot provide a complete downloadable copy of all your data. However, we can provide screenshots and certain exportable data upon request.</li>
+      <li><strong>Data Security:</strong> We use strong encryption and industry-standard safeguards.</li>
+      <li><strong>Data Sharing:</strong> We never sell your data. Information is only shared when required by law.</li>
     </ul>
   </section>
 
   <section>
-    <h2>4. Your Rights</h2>
+    <h2>4. AI Features</h2>
+    <p>Nuvira includes AI features to improve your experience. By default, AI responses are filtered for safety.</p>
     <ul>
-      <li>Access, modify, or delete your personal data</li>
-      <li>Contact us for data requests at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a></li>
-      <li>Request account deactivation or export of your data</li>
+      <li>An optional <strong>uncensored AI mode</strong> can be unlocked through a paid upgrade.</li>
+      <li>This mode is <strong>off by default</strong> and requires clear consent to activate.</li>
+      <li>Users are warned about potential unfiltered outputs before enabling.</li>
+      <li>Unsafe responses can be reported directly via email at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
     </ul>
   </section>
 
   <section>
-    <h2>5. Changes to Terms</h2>
+    <h2>5. Your Rights</h2>
     <ul>
-      <li>We may update Terms & Privacy Policy occasionally</li>
-      <li>Significant changes will be communicated through the app or email</li>
-      <li>Continued use means acceptance of updated terms</li>
-      <li>Check periodically to stay informed</li>
+      <li>You can request account deletion or data export (partial exports and screenshots available).</li>
+      <li>You may update your account information at any time.</li>
+      <li>For requests, email us at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
     </ul>
   </section>
 
   <section>
-    <h2>6. Contact Us</h2>
-    <p>For any questions or concerns, reach out to our support team at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</p>
+    <h2>6. Updates</h2>
+    <p>We may update these Terms & Privacy Policy. Major updates will be shared in-app or via email. Continued use of Nuvira after updates means you accept the changes.</p>
+  </section>
+
+  <section>
+    <h2>7. Contact</h2>
+    <p>For questions, concerns, or reporting, contact us at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</p>
   </section>
 </main>
 <footer>
-  &copy; 2025 skysmind. All rights reserved.
+  &copy; 2025 SkysMind. All rights reserved.
 </footer>
 </body>
 </html>
+

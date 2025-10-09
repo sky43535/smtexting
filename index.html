@@ -12,7 +12,10 @@
     --text: #1a1a1a;
     --light: #fff;
     --bg: #faf8fc;
+    --dark-bg: #1a1a1a;
+    --dark-text: #f0f0f0;
     --radius: 18px;
+    --section-gap: 2.5rem;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,9 +27,14 @@
     color: var(--text);
     line-height: 1.7;
     font-size: 16px;
+    transition: background 0.3s, color 0.3s;
   }
 
-  /* Header */
+  .dark-mode { 
+    background: var(--dark-bg); 
+    color: var(--dark-text); 
+  }
+
   header {
     text-align: center;
     padding: 3.5rem 1rem 2.5rem;
@@ -35,50 +43,52 @@
     border-bottom-left-radius: 45% 12%;
     border-bottom-right-radius: 45% 12%;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    position: relative;
   }
-  header h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.8px;
-  }
-  header p {
-    font-size: 1.2rem;
-    font-weight: 500;
-    opacity: 0.95;
-  }
-  header span {
-    display: block;
-    margin-top: 0.6rem;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.9);
-  }
+  header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.6rem; letter-spacing: -0.8px; }
+  header p { font-size: 1.2rem; font-weight: 500; opacity: 0.95; }
+  header span { display: block; margin-top: 0.6rem; font-size: 0.9rem; color: rgba(255,255,255,0.9); }
 
-  /* Main container */
+  #toggle-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    padding: 0.5rem 0.7rem;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s;
+  }
+  #toggle-btn:hover { background: rgba(255,255,255,0.35); }
+
   main {
-    max-width: 860px;
+    max-width: 900px;
     margin: -2.5rem auto 4rem;
     background: var(--light);
-    padding: 2.8rem 2.8rem 3.2rem;
+    padding: 3rem 2.5rem 3.5rem;
     border-radius: var(--radius);
     box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+    transition: background 0.3s, color 0.3s;
   }
 
+  .dark-mode main { background: #2a2a2a; }
+
   section {
-    margin-bottom: 2.5rem;
-    padding: 1.5rem 2rem;
-    border-left: 5px solid var(--primary);
+    margin-bottom: var(--section-gap);
+    padding: 1.8rem 2rem;
+    border-left: 6px solid var(--primary);
     border-radius: var(--radius);
     background: #fdfcfe;
     transition: transform 0.25s ease, background 0.25s ease;
   }
-  section:hover {
-    background: #faf2ff;
-    transform: translateY(-2px);
-  }
+  section:hover { background: #faf2ff; transform: translateY(-2px); }
+  .dark-mode section { background: #333; }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.85rem;
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--primary);
@@ -87,25 +97,11 @@
   }
 
   p { margin-bottom: 1rem; }
+  ul { margin: 0.5rem 0 1.5rem 1.5rem; padding: 0; }
+  ul li { margin-bottom: 0.8rem; list-style-type: disc; }
 
-  ul {
-    margin: 0.5rem 0 1.5rem 1.5rem;
-    padding: 0;
-  }
-  ul li {
-    margin-bottom: 0.8rem;
-    list-style-type: disc;
-  }
-
-  a {
-    color: var(--secondary);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  a:hover {
-    text-decoration: underline;
-    color: var(--accent);
-  }
+  a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+  a:hover { text-decoration: underline; color: var(--accent); }
 
   footer {
     text-align: center;
@@ -114,12 +110,15 @@
     padding: 1.5rem 0;
     border-top: 1px solid #ddd;
     margin-top: 3rem;
+    transition: color 0.3s;
   }
+  .dark-mode footer { color: #aaa; border-top: 1px solid #444; }
 
   @media (max-width: 650px) {
     main { padding: 2rem 1.5rem; }
     header h1 { font-size: 2.3rem; }
     header p { font-size: 1rem; }
+    h2 { font-size: 1.5rem; }
   }
 </style>
 </head>
@@ -127,82 +126,99 @@
 <header>
   <h1>Nuvira</h1>
   <p>Terms of Service & Privacy Policy</p>
-  <span>Last Updated: September 11, 2025</span>
+  <span>Last Updated: October 9, 2025</span>
+  <button id="toggle-btn">🌙</button>
 </header>
+
 <main>
   <section>
     <h2>1. Introduction</h2>
-    <p>Welcome to Nuvira. By using our app, you agree to these Terms of Service and Privacy Policy. Please read them carefully to understand your rights and responsibilities.</p>
+    <p>Welcome to Nuvira. By using our app, you agree to these Terms of Service and Privacy Policy. Please read carefully to understand your rights, responsibilities, and how we handle your data. We aim to be transparent and keep your experience safe.</p>
   </section>
 
   <section>
     <h2>2. Terms of Service</h2>
     <ul>
       <li><strong>Age Requirement:</strong> You must be at least <strong>17 years old</strong> to use Nuvira.</li>
-      <li><strong>Account Responsibility:</strong> Keep your login details secure. You are responsible for activity under your account.</li>
-      <li><strong>User Conduct:</strong> Do not use Nuvira for harassment, threats, spamming, illegal activity, or intellectual property violations.</li>
+      <li><strong>Account Responsibility:</strong> Keep your login details secure. You are responsible for all activity under your account.</li>
+      <li><strong>User Conduct:</strong> Do not use Nuvira for harassment, threats, spam, illegal activity, or intellectual property violations.</li>
       <li><strong>Termination:</strong> Accounts violating these rules may be suspended or permanently removed.</li>
     </ul>
   </section>
 
   <section>
-    <h2>3. Privacy Policy</h2>
+    <h2>3. Device & App Information</h2>
+    <p>To provide and improve Nuvira, we collect device and app information to ensure proper functionality, troubleshoot issues, and enhance user experience. This includes:</p>
     <ul>
-      <li><strong>What We Collect:</strong>
-        <ul>
-          <li>Email, username, and password</li>
-          <li>Device model, iOS version, app version</li>
-          <li>Login and usage activity</li>
-          <li>Screenshot detection events in chats</li>
-          <li>Messages (end-to-end encrypted; we cannot read content)</li>
-        </ul>
-      </li>
-      <li><strong>How We Use It:</strong>
-        <ul>
-          <li>To run, improve, and secure our service</li>
-          <li>To communicate app updates and support</li>
-          <li>To meet legal requirements</li>
-        </ul>
-      </li>
-      <li><strong>Data Access & Export:</strong> Due to how our system is designed, we cannot provide a complete downloadable copy of all your data. However, we can provide screenshots and certain exportable data upon request.</li>
-      <li><strong>Data Security:</strong> We use strong encryption and industry-standard safeguards.</li>
-      <li><strong>Data Sharing:</strong> We never sell your data. Information is only shared when required by law.</li>
+      <li>Device model (e.g., iPhone 14)</li>
+      <li>Operating system version (e.g., iOS 17)</li>
+      <li>App version</li>
+      <li>Usage metrics (e.g., session duration, feature usage, app crashes)</li>
+    </ul>
+    <p>All this information is used solely for support, performance improvements, and security. It is <strong>never shared with third-party marketers</strong>.</p>
+  </section>
+
+  <section>
+    <h2>4. AI Features & Data</h2>
+    <p>Nuvira includes AI features to enhance your experience. AI responses are processed externally and we <strong>do not store any AI chat data</strong> on our servers. AI providers include <strong>Qwen3</strong> and <strong>Dolphin Mistral Venice Edition</strong>.</p>
+    <ul>
+      <li>AI responses are external; no user text is retained by Nuvira.</li>
+      <li>An optional <strong>uncensored AI mode</strong> is available with explicit consent.</li>
+      <li>Users may report unsafe AI responses via <a href="mailto:skylerp530@gmail.com">email</a>.</li>
+      <li>Refer to each AI provider’s privacy policy for more details.</li>
     </ul>
   </section>
 
   <section>
-    <h2>4. AI Features</h2>
-    <p>Nuvira includes AI features to improve your experience. By default, AI responses are filtered for safety.</p>
+    <h2>5. Email & Tracking</h2>
+    <p>Your email is used for account identification, login recovery, and important app notifications. Anonymized usage patterns linked to emails may be used to improve the service. Emails are never sold or shared with advertisers.</p>
+  </section>
+
+  <section>
+    <h2>6. Spotify Integration</h2>
+    <p>Nuvira can connect to Spotify to enhance your music and social experience. All data is handled through Spotify’s API. Nuvira does not store Spotify credentials or activity. Your privacy is protected by Spotify’s policies.</p>
+  </section>
+
+  <section>
+    <h2>7. Bonjour P2P Chat</h2>
+    <p>Peer-to-peer chat via Bonjour allows direct encrypted connections between devices on the same network. Messages are <strong>not stored on Nuvira servers</strong>. We only facilitate the connection.</p>
+  </section>
+
+  <section>
+    <h2>8. Your Rights</h2>
+    <p>You have the following rights regarding your account and data:</p>
     <ul>
-      <li>An optional <strong>uncensored AI mode</strong> can be unlocked through a paid upgrade.</li>
-      <li>This mode is <strong>off by default</strong> and requires clear consent to activate.</li>
-      <li>Users are warned about potential unfiltered outputs before enabling.</li>
-      <li>Unsafe responses can be reported directly via email at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
+      <li><strong>Account Deletion:</strong> Permanently delete your account and all associated data.</li>
+      <li><strong>Data Export:</strong> Some data can be downloaded upon request. Other data may only be shared via screenshots or summaries due to server limitations.</li>
+      <li><strong>Account Updates:</strong> Update your account information at any time.</li>
+      <li>For requests, contact <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
     </ul>
   </section>
 
   <section>
-    <h2>5. Your Rights</h2>
-    <ul>
-      <li>You can request account deletion or data export (partial exports and screenshots available).</li>
-      <li>You may update your account information at any time.</li>
-      <li>For requests, email us at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
-    </ul>
+    <h2>9. Updates</h2>
+    <p>These Terms & Privacy Policy may be updated periodically. Significant changes will be communicated via in-app notifications or email. Continued use after updates indicates acceptance.</p>
   </section>
 
   <section>
-    <h2>6. Updates</h2>
-    <p>We may update these Terms & Privacy Policy. Major updates will be shared in-app or via email. Continued use of Nuvira after updates means you accept the changes.</p>
-  </section>
-
-  <section>
-    <h2>7. Contact</h2>
-    <p>For questions, concerns, or reporting, contact us at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</p>
+    <h2>10. Contact</h2>
+    <p>For questions, concerns, or reporting issues, contact us at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</p>
   </section>
 </main>
+
 <footer>
   &copy; 2025 SkysMind. All rights reserved.
 </footer>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-btn');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    // Use Unicode symbols instead of emoji
+    toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☼' : '☾';
+  });
+</script>
+
 </body>
 </html>
 

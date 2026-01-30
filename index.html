@@ -19,9 +19,7 @@
     --radius: 18px;
     --section-gap: 2.5rem;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
       Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -31,12 +29,7 @@
     font-size: 16px;
     transition: background 0.3s, color 0.3s;
   }
-
-  .dark-mode { 
-    background: var(--dark-bg); 
-    color: var(--dark-text); 
-  }
-
+  .dark-mode { background: var(--dark-bg); color: var(--dark-text); }
   header {
     text-align: center;
     padding: 3.5rem 1rem 2.5rem;
@@ -50,7 +43,6 @@
   header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.6rem; letter-spacing: -0.8px; }
   header p { font-size: 1.2rem; font-weight: 500; opacity: 0.95; }
   header span { display: block; margin-top: 0.6rem; font-size: 0.9rem; color: rgba(255,255,255,0.9); }
-
   #toggle-btn {
     position: absolute;
     top: 1rem;
@@ -65,7 +57,6 @@
     transition: background 0.3s;
   }
   #toggle-btn:hover { background: rgba(255,255,255,0.35); }
-
   main {
     max-width: 900px;
     margin: -2.5rem auto 4rem;
@@ -75,9 +66,7 @@
     box-shadow: 0 16px 50px rgba(0,0,0,0.08);
     transition: background 0.3s, color 0.3s;
   }
-
   .dark-mode main { background: #2a2a2a; }
-
   section {
     margin-bottom: var(--section-gap);
     padding: 1.8rem 2rem;
@@ -88,7 +77,6 @@
   }
   section:hover { background: #faf2ff; transform: translateY(-2px); }
   .dark-mode section { background: #333; }
-
   h2 {
     font-size: 1.85rem;
     font-weight: 700;
@@ -97,14 +85,11 @@
     border-bottom: 2px solid var(--secondary);
     padding-bottom: 0.3rem;
   }
-
   p { margin-bottom: 1rem; }
   ul { margin: 0.5rem 0 1.5rem 1.5rem; padding: 0; }
   ul li { margin-bottom: 0.8rem; list-style-type: disc; }
-
   a { color: var(--secondary); text-decoration: none; font-weight: 600; }
   a:hover { text-decoration: underline; color: var(--accent); }
-
   footer {
     text-align: center;
     font-size: 0.9rem;
@@ -115,7 +100,6 @@
     transition: color 0.3s;
   }
   .dark-mode footer { color: #aaa; border-top: 1px solid #444; }
-
   @media (max-width: 650px) {
     main { padding: 2rem 1.5rem; }
     header h1 { font-size: 2.3rem; }
@@ -133,91 +117,99 @@
 </header>
 
 <main>
+
+  <!-- 1. Introduction -->
   <section>
     <h2>1. Introduction</h2>
-    <p>Welcome to Nuvira. By using our app, you agree to these Terms of Service, Privacy Policy, and all relevant bindings issued by Nuvira, the Nuvira Identity Framework (NIF), and the Trust Authority (TA). These terms govern the usage, monitoring, and verification of accounts, credentials, certificates, and proprietary documents issued under these frameworks.</p>
+    <p>Welcome to Nuvira. By using Nuvira applications, services, and proprietary frameworks, including the Nuvira Identity Framework (NIF) and Trust Authority (TA), you agree to these Terms of Service and Privacy Policy. These terms govern your rights, responsibilities, and how we process data across all Nuvira-bound systems. Please read carefully.</p>
   </section>
 
+  <!-- 2. Terms of Service -->
   <section>
     <h2>2. Terms of Service</h2>
     <ul>
-      <li><strong>Age Requirement:</strong> You must be at least <strong>17 years old</strong> to use Nuvira.</li>
-      <li><strong>Account Responsibility:</strong> Keep your login details secure. You are responsible for all activity under your account.</li>
-      <li><strong>User Conduct:</strong> Do not use Nuvira for harassment, threats, spam, illegal activity, or violations of intellectual property.</li>
-      <li><strong>Binding Compliance:</strong> Users acknowledge that their accounts, credentials, certificates, and issued documents are continuously monitored and bound by the issuing framework (Nuvira, NIF, or TA). Any misrepresentation, duplication, or tampering constitutes a material violation of the sign issuer’s binding and may result in suspension, revocation, or restricted access.</li>
-      <li><strong>Termination:</strong> Accounts violating these rules may be suspended or permanently removed.</li>
+      <li><strong>Age Requirement:</strong> You must be at least 17 years old to use Nuvira systems.</li>
+      <li><strong>Account Responsibility:</strong> You are responsible for the security and use of your account. Each Nuvira-bound account is continuously monitored by the applicable signing issuer (NIF, TA, or other proprietary Nuvira framework).</li>
+      <li><strong>User Conduct:</strong> Do not use Nuvira or its frameworks for harassment, spoofing, unauthorized access, illegal activity, or violations of intellectual property rights.</li>
+      <li><strong>Document & Certificate Compliance:</strong> All Nuvira-issued documents and certificates are governed by the signing issuer’s terms. Any attempt to circumvent access controls, tamper with document integrity, or bypass verification constitutes a material violation.</li>
+      <li><strong>Termination & Enforcement:</strong> Accounts or document privileges found in violation may be suspended, access revoked, or permanently terminated at the discretion of Nuvira and the specific signing issuer.</li>
     </ul>
   </section>
 
+  <!-- 2a. Issuer Terms -->
+  <section>
+    <h2>2a. Proprietary Framework Terms</h2>
+    <ul>
+      <li><strong>Nuvira Identity Framework (NIF):</strong> Responsible for issuance, monitoring, and integrity verification of identity documents. Processes are fully on-device with no server access to private contents. NIF may report errors or gate access based on document verification and account integrity.</li>
+      <li><strong>Trust Authority (TA):</strong> Maintains the security and operational integrity of NIF-issued documents, enforces access controls, and may restrict privileges based on NIF reports. TA operates fully on-device and ensures secure execution of NIF processes. No server-side storage of private document contents occurs.</li>
+      <li><strong>Reference to Signing Issuer(s):</strong> Throughout these Terms, "Issuer" or "Signing Issuer" refers specifically to the entity that signed a given document or certificate. Provisions related to the Issuer apply to the document or certificate signed by that entity only.</li>
+    </ul>
+  </section>
+
+  <!-- 3. Device & App Information -->
   <section>
     <h2>3. Device & App Information</h2>
-    <p>To provide and improve Nuvira, we collect device and app information to ensure proper functionality, troubleshoot issues, and enhance user experience. This includes:</p>
+    <p>To provide and maintain Nuvira services, we collect minimal device and app information to ensure proper functionality, troubleshoot issues, and improve security. Collected data includes:</p>
     <ul>
-      <li>Device model (e.g., iPhone 14)</li>
-      <li>Operating system version (e.g., iOS 17)</li>
+      <li>Device model and operating system version</li>
       <li>App version</li>
-      <li>Usage metrics (e.g., session duration, feature usage, app crashes)</li>
+      <li>Usage metrics for debugging and service improvement</li>
     </ul>
-    <p>All information is used solely for support, performance improvements, and security. It is <strong>never shared with third-party marketers</strong>.</p>
+    <p>All information is used solely for system support, verification, and security purposes. No data is shared with third-party marketers.</p>
   </section>
 
+  <!-- 4. AI Features & Data -->
   <section>
     <h2>4. AI Features & Data</h2>
-    <p>Nuvira includes AI features to enhance your experience. AI responses are processed externally and are not stored by Nuvira. AI providers include <strong>Qwen3</strong> and <strong>Dolphin Mistral Venice Edition</strong>. Users may opt into uncensored AI features with explicit consent.</p>
+    <p>Nuvira includes AI features to enhance user experience. AI interactions are processed externally, and no user text is retained by Nuvira. AI providers include Qwen3 and Dolphin Mistral Venice Edition.</p>
   </section>
 
+  <!-- 5. Email & Tracking -->
   <section>
     <h2>5. Email & Tracking</h2>
-    <p>Emails are used for account identification, recovery, and notifications. Anonymized usage patterns linked to emails may be used to improve service. Emails are never sold or shared.</p>
+    <p>Emails are used for account identification, login recovery, and important notifications. Anonymized usage patterns linked to emails may be used for system improvements. Emails are not sold or shared with advertisers.</p>
   </section>
 
+  <!-- 6. Spotify Integration -->
   <section>
     <h2>6. Spotify Integration</h2>
-    <p>Nuvira can connect to Spotify to enhance music and social experience. Data is handled solely via Spotify API. Nuvira does not store credentials or activity. Privacy is protected under Spotify policies.</p>
+    <p>Spotify integration is optional and handled through Spotify's API. Nuvira does not store Spotify credentials or activity logs.</p>
   </section>
 
+  <!-- 7. Bonjour P2P Chat -->
   <section>
     <h2>7. Bonjour P2P Chat</h2>
-    <p>Peer-to-peer chat via Bonjour allows direct encrypted connections between devices on the same network. Messages are <strong>not stored on Nuvira servers</strong>. Connection facilitation only.</p>
+    <p>Peer-to-peer chat allows encrypted direct device connections. Nuvira facilitates connections but does not store messages. On-device encryption ensures privacy.</p>
   </section>
 
+  <!-- 8. Your Rights -->
   <section>
-    <h2>8. Account Rights & Issuer Oversight</h2>
+    <h2>8. Your Rights</h2>
+    <p>You may:</p>
     <ul>
-      <li><strong>Account Deletion:</strong> Permanently delete your account and all associated data.</li>
-      <li><strong>Data Export:</strong> Certain data can be exported upon request. Proprietary documents and credentials remain governed by their issuing framework (Nuvira, NIF, or TA).</li>
-      <li><strong>Account Updates:</strong> Update your account information at any time.</li>
-      <li>Users acknowledge that accounts, issued credentials, and certificates are continuously monitored and verified by the issuing framework. Noncompliance constitutes a breach of binding rules set forth by the sign issuer.</li>
-      <li>For requests, contact <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
+      <li>Delete your Nuvira account and associated data.</li>
+      <li>Export certain data on request.</li>
+      <li>Update account information.</li>
+      <li>Request support via <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
     </ul>
   </section>
 
+  <!-- 9. Updates -->
   <section>
-    <h2>9. Nuvira Identity Framework (NIF) Terms</h2>
-    <p>The Nuvira Identity Framework (NIF) governs the issuance, monitoring, and verification of credentials and documents on-device. Key principles:</p>
-    <ul>
-      <li>All issued documents are continuously verified and monitored for integrity and proper usage.</li>
-      <li>Access to documents and accounts may be gated based on monitoring results.</li>
-      <li>NIF does <strong>not access unencrypted content</strong> of any documents or communications.</li>
-      <li>All processes are performed entirely on-device; there is no server-side processing of user content except for error reporting or gating access as needed.</li>
-      <li>Users must comply with all rules enforced by NIF to maintain access and privileges.</li>
-    </ul>
+    <h2>9. Updates</h2>
+    <p>Nuvira may update these Terms & Privacy periodically. Continued use after updates indicates acceptance. Updates will be communicated via notifications or email.</p>
   </section>
 
+  <!-- 10. Contact -->
   <section>
-    <h2>10. Trust Authority (TA) Terms</h2>
-    <p>The Trust Authority (TA) maintains and secures the operation of NIF. Key principles:</p>
-    <ul>
-      <li>TA monitors security processes of NIF and may restrict access or functionality based on reports generated by NIF or related processes.</li>
-      <li>All operations are primarily on-device; no unencrypted user content is accessed or transmitted.</li>
-      <li>TA ensures enforcement of binding compliance and overall integrity of the credentialing system.</li>
-      <li>TA operates under the ownership of Nuvira and coordinates with NIF to enforce rules and gate access where necessary.</li>
-    </ul>
+    <h2>10. Contact</h2>
+    <p>For questions, concerns, or reporting issues, contact <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>. Refer to the specific terms of NIF and TA for matters related to document issuance and security.</p>
   </section>
+
 </main>
 
 <footer>
-  &copy; 2026 SkysMind. All rights reserved.
+  &copy; 2026 skysmind. All rights reserved.
 </footer>
 
 <script>

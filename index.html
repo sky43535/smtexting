@@ -1,246 +1,382 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nuvira – Terms of Service, Privacy Policy & UELA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Nuvira – Terms, Privacy & EULA</title>
+<meta name="description" content="Nuvira's Terms of Service, Privacy Policy and End User License Agreement." />
 <style>
   :root {
-    --primary: #a259ff;
-    --secondary: #ff4d6d;
-    --accent: #ffb347;
-    --text: #1a1a1a;
-    --light: #fff;
-    --bg: #faf8fc;
-    --dark-bg: #1a1a1a;
-    --dark-text: #f0f0f0;
-    --radius: 18px;
-    --section-gap: 2.5rem;
+    --purple: #660099;
+    --magenta: #cc3380;
+    --orange: #ff8000;
+    --gold: #ffbf4d;
+    --gradient: linear-gradient(135deg, var(--purple), var(--magenta) 38%, var(--orange) 72%, var(--gold));
+    --bg: #faf7fc;
+    --card: rgba(255, 255, 255, 0.78);
+    --card-border: rgba(102, 0, 153, 0.10);
+    --text: #1d1622;
+    --muted: #6b6172;
+    --chip: rgba(102, 0, 153, 0.07);
+    --shadow: 0 18px 50px rgba(60, 0, 90, 0.10);
+    --radius: 22px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e0a12;
+      --card: rgba(34, 26, 40, 0.78);
+      --card-border: rgba(255, 255, 255, 0.07);
+      --text: #f3eef6;
+      --muted: #a99db1;
+      --chip: rgba(255, 255, 255, 0.07);
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e0a12;
+    --card: rgba(34, 26, 40, 0.78);
+    --card-border: rgba(255, 255, 255, 0.07);
+    --text: #f3eef6;
+    --muted: #a99db1;
+    --chip: rgba(255, 255, 255, 0.07);
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-      Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
     font-size: 16px;
-    transition: background 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  /* soft Nuvira glow behind everything, like the app's background */
+  body::before {
+    content: ""; position: fixed; inset: -20%; z-index: -1; pointer-events: none;
+    background: var(--gradient); opacity: 0.13; filter: blur(90px);
   }
 
-  .dark-mode { 
-    background: var(--dark-bg); 
-    color: var(--dark-text); 
+  .hero {
+    max-width: 920px; margin: 24px auto 0; border-radius: 30px; overflow: hidden;
+    background: var(--gradient); color: #fff; padding: 52px 28px 44px; text-align: center;
+    position: relative; box-shadow: var(--shadow);
   }
-
-  header {
-    text-align: center;
-    padding: 3.5rem 1rem 2.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #fff;
-    border-bottom-left-radius: 45% 12%;
-    border-bottom-right-radius: 45% 12%;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    position: relative;
+  .hero .wordmark { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 900; letter-spacing: 0.06em; }
+  .hero .tagline { font-size: 1.1rem; font-weight: 600; opacity: 0.95; margin-top: 2px; }
+  .hero h1 { font-size: 1.05rem; font-weight: 600; margin-top: 18px; opacity: 0.95; }
+  .hero .updated {
+    display: inline-block; margin-top: 14px; font-size: 0.85rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.18);
   }
-  header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.6rem; letter-spacing: -0.8px; }
-  header p { font-size: 1.2rem; font-weight: 500; opacity: 0.95; }
-  header span { display: block; margin-top: 0.6rem; font-size: 0.9rem; color: rgba(255,255,255,0.9); }
-
-  #toggle-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255,255,255,0.2);
-    border: none;
-    padding: 0.5rem 0.7rem;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    cursor: pointer;
-    color: #fff;
-    transition: background 0.3s;
+  .theme-btn {
+    position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%;
+    border: none; background: rgba(255, 255, 255, 0.2); color: #fff; font-size: 1.1rem; cursor: pointer;
   }
-  #toggle-btn:hover { background: rgba(255,255,255,0.35); }
+  .theme-btn:hover { background: rgba(255, 255, 255, 0.32); }
+  .theme-btn:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 
-  main {
-    max-width: 900px;
-    margin: -2.5rem auto 4rem;
-    background: var(--light);
-    padding: 3rem 2.5rem 3.5rem;
-    border-radius: var(--radius);
-    box-shadow: 0 16px 50px rgba(0,0,0,0.08);
-    transition: background 0.3s, color 0.3s;
+  .summary {
+    max-width: 920px; margin: 18px auto 0; display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+  .pill {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 18px;
+    padding: 16px 18px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  }
+  .pill strong { display: block; font-size: 0.98rem; }
+  .pill span { color: var(--muted); font-size: 0.88rem; line-height: 1.5; display: block; margin-top: 2px; }
 
-  .dark-mode main { background: #2a2a2a; }
+  nav.toc {
+    max-width: 920px; margin: 18px auto 0; display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  nav.toc a {
+    font-size: 0.86rem; font-weight: 600; color: var(--text); text-decoration: none;
+    padding: 7px 13px; border-radius: 999px; background: var(--chip);
+  }
+  nav.toc a:hover { background: var(--gradient); color: #fff; }
 
+  main { max-width: 920px; margin: 22px auto 0; display: flex; flex-direction: column; gap: 16px; }
   section {
-    margin-bottom: var(--section-gap);
-    padding: 1.8rem 2rem;
-    border-left: 6px solid var(--primary);
-    border-radius: var(--radius);
-    background: #fdfcfe;
-    transition: transform 0.25s ease, background 0.25s ease;
+    background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+    padding: 26px 26px 18px; box-shadow: var(--shadow);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
   }
-  section:hover { background: #faf2ff; transform: translateY(-2px); }
-  .dark-mode section { background: #333; }
-
-  h2 {
-    font-size: 1.85rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--primary);
-    border-bottom: 2px solid var(--secondary);
-    padding-bottom: 0.3rem;
+  section h2 {
+    display: flex; align-items: center; gap: 12px; font-size: 1.32rem; line-height: 1.3;
+    margin-bottom: 12px; text-wrap: balance;
   }
-
-  p { margin-bottom: 1rem; }
-  ul { margin: 0.5rem 0 1.5rem 1.5rem; padding: 0; }
-  ul li { margin-bottom: 0.8rem; list-style-type: disc; }
-
-  a { color: var(--secondary); text-decoration: none; font-weight: 600; }
-  a:hover { text-decoration: underline; color: var(--accent); }
-
+  .num {
+    flex: none; width: 34px; height: 34px; border-radius: 11px; background: var(--gradient);
+    color: #fff; font-size: 0.95rem; font-weight: 800; display: grid; place-items: center;
+  }
+  section h3 { font-size: 1.02rem; margin: 14px 0 6px; }
+  p { margin-bottom: 12px; }
+  ul { margin: 4px 0 14px 1.2rem; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--magenta); }
+  strong { font-weight: 700; }
+  a { color: var(--magenta); font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .note {
+    border-radius: 14px; padding: 12px 14px; margin: 6px 0 14px; font-size: 0.93rem;
+    background: var(--chip); border-left: 4px solid var(--orange);
+  }
   footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #666;
-    padding: 1.5rem 0;
-    border-top: 1px solid #ddd;
-    margin-top: 3rem;
-    transition: color 0.3s;
+    max-width: 920px; margin: 28px auto 40px; text-align: center; color: var(--muted); font-size: 0.88rem;
   }
-  .dark-mode footer { color: #aaa; border-top: 1px solid #444; }
+  footer .wordmark-sm { font-weight: 900; letter-spacing: 0.08em; background: var(--gradient);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-  @media (max-width: 650px) {
-    main { padding: 2rem 1.5rem; }
-    header h1 { font-size: 2.3rem; }
-    header p { font-size: 1rem; }
-    h2 { font-size: 1.5rem; }
+  @media (max-width: 600px) {
+    .hero { padding: 44px 20px 36px; border-radius: 24px; }
+    section { padding: 22px 18px 12px; }
+    section h2 { font-size: 1.15rem; }
   }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-<header>
-  <h1>Nuvira</h1>
-  <p>Terms of Service & Privacy Policy</p>
-  <span>Last Updated: May 14, 2026</span>
-  <button id="toggle-btn">🌙</button>
+
+<header class="hero">
+  <button class="theme-btn" id="theme-btn" aria-label="Switch light or dark mode">☾</button>
+  <div class="wordmark">NUVIRA</div>
+  <div class="tagline">Messaging, Reimagined</div>
+  <h1>Terms of Service, Privacy Policy &amp; End User License Agreement</h1>
+  <span class="updated">Last updated: October 26, 2026</span>
 </header>
 
+<div class="summary" aria-label="The short version">
+  <div class="pill"><strong>🔐 Your chats are yours</strong><span>Messages are end-to-end encrypted with SkyCipher. We can't read them.</span></div>
+  <div class="pill"><strong>🚫 No ads, no selling</strong><span>We never sell your data or use it for advertising or tracking.</span></div>
+  <div class="pill"><strong>🛡️ Built to protect</strong><span>The Nuvira Trust Authority and teen safety tools keep accounts genuine and people safe.</span></div>
+  <div class="pill"><strong>🗑️ You're in control</strong><span>Delete your messages or your whole account anytime.</span></div>
+</div>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#intro">Introduction</a>
+  <a href="#encryption">SkyCipher</a>
+  <a href="#trust">Trust Authority</a>
+  <a href="#collect">What we collect</a>
+  <a href="#use">How we use it</a>
+  <a href="#providers">Service providers</a>
+  <a href="#teens">Teen safety</a>
+  <a href="#premium">Plus &amp; Pro</a>
+  <a href="#coins">Coins &amp; rewards</a>
+  <a href="#rules">Community rules</a>
+  <a href="#rights">Your rights</a>
+  <a href="#retention">Retention</a>
+  <a href="#p2p">Local P2P chat</a>
+  <a href="#changes">Changes</a>
+  <a href="#contact">Contact</a>
+  <a href="#eula">EULA</a>
+</nav>
+
 <main>
-  <!-- 1. Introduction -->
-  <section>
-    <h2>1. Introduction</h2>
-    <p>Welcome to Nuvira. By accessing or using the app, you agree to these Terms of Service, Privacy Policy, and User End License Agreement (UELA). Nuvira is built around a secure account and credential management framework designed to help manage user access, authentication, account integrity, and platform security. Please read these terms carefully to understand your rights, responsibilities, and how information related to your account may be handled.</p>
+
+  <section id="intro">
+    <h2><span class="num">1</span>Introduction</h2>
+    <p>Welcome to Nuvira, a private messaging app made by Skysmind ("we", "us"). By creating an account or using Nuvira, you agree to these Terms of Service, this Privacy Policy and the End User License Agreement below (together, the "Terms"). Please read them carefully. If you don't agree, please don't use Nuvira.</p>
   </section>
 
-  <!-- 2. Account Security & Platform Framework -->
-  <section>
-    <h2>2. Account Security & Platform Framework</h2>
-    <p>Nuvira operates using a secure account and identity management framework designed to protect users, maintain platform integrity, and help prevent abuse, fraud, unauthorized access, or misuse of services.</p>
+  <section id="encryption">
+    <h2><span class="num">2</span>Your Messages &amp; SkyCipher Encryption</h2>
+    <p>Nuvira protects your conversations with <strong>SkyCipher</strong>, our end-to-end encryption framework.</p>
     <ul>
-      <li>User account information may be processed and monitored for security, authentication, moderation, fraud prevention, and platform integrity purposes.</li>
-      <li>Nuvira may validate account activity, login sessions, connected devices, and credential-related events to help maintain account security.</li>
-      <li>Users are responsible for maintaining the security of their accounts and credentials.</li>
-      <li>Attempting to bypass security systems, impersonate others, manipulate credentials, abuse platform systems, or interfere with service functionality is prohibited.</li>
-      <li>Violation of these terms may result in restrictions, suspension, or permanent termination of access to Nuvira services.</li>
+      <li>The content of your messages, photos, lists, reactions and similar chat content is encrypted on your device before it is sent, and can only be decrypted by the people in the conversation. <strong>We cannot read it.</strong></li>
+      <li>Your private encryption keys are created and kept on your device, protected by the Secure Enclave, and are never sent to us.</li>
+      <li>Your public key is stored with your profile so others can start encrypted chats with you.</li>
+      <li>To deliver messages we handle limited information that isn't message content, such as who a message is from and to, when it was sent, and its type (for example "text" or "image").</li>
+      <li><strong>Deleting:</strong> you can delete your side of a conversation at any time. Once both people in a chat have deleted it, the messages are permanently removed from our servers. "Delete for everyone" removes a message for both people.</li>
     </ul>
   </section>
 
-
-  <!-- 3. Device & App Information -->
-  <section>
-    <h2>3. Device & App Information</h2>
-    <p>To provide and improve Nuvira, we collect device and app information to ensure functionality, troubleshoot issues, and enhance experience. This includes:</p>
+  <section id="trust">
+    <h2><span class="num">3</span>The Nuvira Trust Authority</h2>
+    <p>The Nuvira Trust Authority helps keep Nuvira genuine and safe. It checks that you're using the real Nuvira app, that your account is in good standing, and that the encryption keys people chat with really belong to them.</p>
+    <h3>What your device sends</h3>
     <ul>
-      <li>Device model (e.g., iPhone 14)</li>
-      <li>Operating system version (e.g., iOS 18)</li>
-      <li>App version</li>
-      <li>Basic usage and diagnostic metrics related to app performance and security</li>
+      <li>Proof that the app is genuine, made with Apple's App Attest service using a key that belongs to that install of the app. <strong>This key is not linked to your account.</strong></li>
+      <li>Your account sign-in, so passes are issued to you.</li>
+      <li>The public half of your encryption keys, to create your chat certificate. The private half never leaves your device.</li>
+      <li>Your app version, so we can let you know when an update is required.</li>
     </ul>
-    <p>Information is used solely for support, platform functionality, security, diagnostics, and service improvement. It is <strong>never sold to advertisers or third-party marketers</strong>.</p>
+    <h3>What's stored on your device</h3>
+    <p>A few signed passes (access, account status, chat certificate and request signing). Each contains your account ID, what it allows, when it was issued, when it expires and our signature. They're kept in protected storage that is locked while your device is locked and is not backed up to iCloud, and they renew automatically.</p>
+    <h3>What we keep</h3>
+    <p>The app install key (not linked to you), a fingerprint of your public key so the people you message can verify it, and your account status. Never your messages or private keys.</p>
+    <div class="note">If a check can't be completed, or something looks wrong, Nuvira may stay locked until it can be verified. This protects you and the people you talk to.</div>
   </section>
 
-
-  <!-- 4. Email & Account Information -->
-  <section>
-    <h2>4. Email & Account Information</h2>
-    <p>Your email address may be used for account identification, authentication, login recovery, notifications, support, and important service-related communications. Limited anonymized usage information may also be collected to improve reliability, performance, and user experience. Nuvira does not sell personal information to advertisers.</p>
-  </section>
-
-  <!-- 5. Spotify Integration -->
-  <section>
-    <h2>5. Spotify Integration</h2>
-    <p>Nuvira may integrate with Spotify features and APIs to support music-related functionality. Authentication and data handling for Spotify services are managed through Spotify systems and subject to Spotify’s own policies and terms.</p>
-  </section>
-
-  <!-- 6. Bonjour P2P Chat -->
-  <section>
-    <h2>6. Bonjour P2P Chat</h2>
-    <p>Peer-to-peer chat features using Bonjour allow local encrypted communication between devices on the same network. Messages exchanged through these local connections are not stored on Nuvira servers.</p>
-  </section>
-
-  <!-- 7. Your Rights -->
-  <section>
-    <h2>7. Your Rights</h2>
+  <section id="collect">
+    <h2><span class="num">4</span>Information We Collect</h2>
     <ul>
-      <li><strong>Account Deletion:</strong> Permanently delete your account and credentials.</li>
-      <li><strong>Data Export:</strong> Some data may be downloaded. Other data may be shared only via screenshots or summaries.</li>
-      <li><strong>Account Updates:</strong> Update account information at any time.</li>
-      <li>Requests: <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</li>
-      <li>Nuvira may deny, restrict, or terminate access to services if accounts violate these Terms or misuse platform systems.</li>
+      <li><strong>Account information:</strong> email address, username, smID, password (handled by our authentication provider; we never see it in plain text), and your recovery PIN in hashed form.</li>
+      <li><strong>Profile information:</strong> username, avatar and bio. These are visible to other users.</li>
+      <li><strong>Presence &amp; activity:</strong> whether you're online, and (only if you leave these on for a chat) typing indicators and read receipts. You control these per chat.</li>
+      <li><strong>Device &amp; app information:</strong> device model, iOS version, app version and push notification tokens, used to run the service and deliver notifications and calls.</li>
+      <li><strong>Performance reports (optional):</strong> if you choose to share them, anonymous performance and crash reports from Apple, which come with a random install ID, app version and device model. You can change this choice anytime.</li>
+      <li><strong>Rewards information:</strong> your coins, streaks, invite codes and which accounts you've connected with through scan-to-earn.</li>
+      <li><strong>Subscription status:</strong> whether you have Nuvira Plus or Pro, verified with Apple. We never receive your payment details.</li>
+      <li><strong>Location:</strong> only when you choose to share a place or map pin in a chat, and that content is encrypted like other messages.</li>
     </ul>
   </section>
 
-  <!-- 8. Updates -->
-  <section>
-    <h2>8. Updates</h2>
-    <p>These Terms, Privacy Policy, and UELA may be updated periodically to reflect service improvements, legal requirements, or platform changes. Continued use of Nuvira after updates indicates acceptance of the revised terms.</p>
-  </section>
-
-  <!-- 9. Contact -->
-  <section>
-    <h2>9. Contact</h2>
-    <p>For questions, support requests, privacy concerns, or reports regarding misuse of the platform, contact us at <a href="mailto:skylerp530@gmail.com">skylerp530@gmail.com</a>.</p>
-  </section>
-
-  <!-- 10. User End License Agreement -->
-  <section>
-    <h2>10. User End License Agreement (UELA)</h2>
-    <p>Nuvira grants users a limited, non-exclusive, non-transferable, and revocable license to access and use the application for personal and lawful purposes in accordance with these Terms.</p>
+  <section id="use">
+    <h2><span class="num">5</span>How We Use Information</h2>
     <ul>
-      <li>You may not reverse engineer, decompile, exploit, copy, redistribute, resell, or interfere with the app or its systems except where permitted by law.</li>
-      <li>You may not use Nuvira to violate laws, infringe on the rights of others, distribute malicious content, abuse platform systems, or interfere with security protections.</li>
-      <li>Nuvira reserves the right to suspend or terminate access to users who violate these Terms or misuse the platform.</li>
-      <li>The application and related services are provided "as is" without warranties of uninterrupted availability or error-free operation.</li>
-      <li>To the maximum extent permitted by law, Nuvira shall not be liable for indirect, incidental, consequential, or special damages arising from use of the platform.</li>
-      <li>Users remain responsible for compliance with local laws and regulations while using the application.</li>
+      <li>To provide, secure and improve Nuvira, including sign-in, message delivery, calls, notifications, rewards and subscriptions.</li>
+      <li>To protect users and the platform: preventing fraud, abuse, spam and unauthorized access, and enforcing these Terms.</li>
+      <li>To provide support and send important service messages.</li>
+    </ul>
+    <p><strong>We do not sell your personal information, show you ads, or track you across other companies' apps and websites.</strong></p>
+  </section>
+
+  <section id="providers">
+    <h2><span class="num">6</span>Service Providers &amp; Integrations</h2>
+    <p>We use trusted providers to run Nuvira. They process information only to provide their service to us:</p>
+    <ul>
+      <li><strong>Google Firebase:</strong> sign-in, database and push notifications.</li>
+      <li><strong>Cloudflare:</strong> hosting for our servers, including the Nuvira Trust Authority.</li>
+      <li><strong>Apple:</strong> App Attest, push notifications, calls and in-app purchases.</li>
+      <li><strong>DiceBear:</strong> generates avatar images from a random seed.</li>
+      <li><strong>Spotify &amp; Shazam:</strong> optional music features. When you use them, those services' own terms and privacy policies apply.</li>
+    </ul>
+  </section>
+
+  <section id="teens">
+    <h2><span class="num">7</span>Teen Safety</h2>
+    <ul>
+      <li>For younger users, Nuvira's <strong>Sensitive Content Guard</strong> is always on. It uses Apple's on-device analysis to blur sensitive images. Images are checked on the device and are not sent to us for this.</li>
+      <li>Nuvira includes safety guidance and tools to block and report people.</li>
+      <li><strong>Nuvira Family:</strong> if Apple's Declared Age Range tells us you're under 18, you'll set up your account through the <strong>Nuvira Family Center</strong>. This all happens during sign-up. We only receive an age range from Apple, never your exact birthday.</li>
+      <li>We have zero tolerance for the sexual exploitation of minors. Accounts involved are removed and may be reported to the appropriate authorities.</li>
+    </ul>
+  </section>
+
+  <section id="premium">
+    <h2><span class="num">8</span>Nuvira Plus &amp; Pro Subscriptions</h2>
+    <ul>
+      <li>Nuvira Plus and Nuvira Pro are optional auto-renewing subscriptions, available monthly or yearly. Prices are shown in the app before you buy.</li>
+      <li>Payment is charged to your Apple Account when you confirm your purchase. Your subscription <strong>renews automatically</strong> unless you cancel at least 24 hours before the end of the current period. Your account is charged for renewal within 24 hours before the period ends.</li>
+      <li>Manage or cancel anytime in your iPhone's <strong>Settings → [your name] → Subscriptions</strong>. Cancelling stops future renewals; you keep access until the end of the period you've paid for.</li>
+      <li>If a free trial is offered, any unused part of it ends when you purchase a subscription.</li>
+      <li>Refunds are handled by Apple under its policies.</li>
+      <li>If you keep your subscription continuously, you keep the price you signed up at, even if prices change for new subscribers.</li>
+      <li>Your perk settings are saved if your subscription lapses and come back if you resubscribe.</li>
+      <li><strong>Privacy and safety features are never part of a paid plan.</strong> They're free for everyone.</li>
+      <li>We may add, change or retire perks over time.</li>
+    </ul>
+  </section>
+
+  <section id="coins">
+    <h2><span class="num">9</span>Coins &amp; Rewards</h2>
+    <ul>
+      <li>Coins are earned in the app, for example through scan-to-earn, streaks and invites. They have <strong>no cash value</strong>, can't be bought, sold, transferred or exchanged for money, and are not your property.</li>
+      <li>Rewards, amounts and requirements may change or end at any time.</li>
+      <li>We may remove coins, streaks or rewards gained through cheating, automation, fake or duplicate accounts, or other abuse.</li>
+    </ul>
+  </section>
+
+  <section id="rules">
+    <h2><span class="num">10</span>Community Rules &amp; Account Security</h2>
+    <p>Keep Nuvira safe and respectful. You may not:</p>
+    <ul>
+      <li>Harass, threaten, bully, exploit or endanger others.</li>
+      <li>Pressure anyone to delete their messages. This can get your account banned without warning.</li>
+      <li>Share illegal content, or content that sexualizes minors.</li>
+      <li>Impersonate others, create accounts to abuse the platform, or farm rewards.</li>
+      <li>Bypass, tamper with or attack Nuvira's security, including the Trust Authority, App Attest or encryption.</li>
+      <li>Spam, scam, or distribute malware.</li>
+    </ul>
+    <p>You're responsible for keeping your account, device and recovery PIN secure. We may restrict, suspend or permanently terminate accounts that break these Terms.</p>
+  </section>
+
+  <section id="rights">
+    <h2><span class="num">11</span>Your Rights</h2>
+    <ul>
+      <li><strong>Delete your account:</strong> permanently delete your account and associated data.</li>
+      <li><strong>Access &amp; export:</strong> request a copy of your account information. Some data may be provided as a summary.</li>
+      <li><strong>Update:</strong> change your profile and account details anytime in the app.</li>
+      <li><strong>Choices:</strong> control presence and activity sharing per chat, and turn performance reports on or off.</li>
+      <li>Depending on where you live, you may have additional rights under local privacy laws. Contact us to use them.</li>
+    </ul>
+  </section>
+
+  <section id="retention">
+    <h2><span class="num">12</span>Data Retention</h2>
+    <p>We keep information only as long as needed to provide Nuvira and meet legal obligations. Messages are removed from our servers once everyone in the conversation has deleted them. Trust Authority passes expire on their own. When you delete your account, we delete or anonymize your information, except where we must keep it to comply with the law or protect users.</p>
+  </section>
+
+  <section id="p2p">
+    <h2><span class="num">13</span>Local Peer-to-Peer Chat</h2>
+    <p>Peer-to-peer chat over Bonjour lets nearby devices on the same network talk directly with local encryption. These messages are not stored on Nuvira servers.</p>
+  </section>
+
+  <section id="changes">
+    <h2><span class="num">14</span>Changes to These Terms</h2>
+    <p>We may update these Terms to reflect new features, legal requirements or improvements. We'll update the date above, and for significant changes we'll let you know in the app. Continuing to use Nuvira after changes means you accept the updated Terms.</p>
+  </section>
+
+  <section id="contact">
+    <h2><span class="num">15</span>Contact</h2>
+    <p>For questions, support, privacy requests or to report misuse, contact us at <a href="mailto:sky@skysmindtech.com">sky@skysmindtech.com</a>.</p>
+  </section>
+
+  <section id="eula">
+    <h2><span class="num">16</span>End User License Agreement (EULA)</h2>
+    <p>Skysmind grants you a limited, non-exclusive, non-transferable, revocable license to use Nuvira on Apple-branded devices you own or control, for personal and lawful purposes, as permitted by the Apple Media Services Terms and Conditions.</p>
+    <ul>
+      <li>You may not copy, modify, reverse engineer, decompile, redistribute, resell or interfere with the app or its systems, except where the law allows.</li>
+      <li>Nuvira is provided "as is" and "as available", without warranties of uninterrupted or error-free operation, to the extent the law allows.</li>
+      <li>To the maximum extent permitted by law, Skysmind is not liable for indirect, incidental, consequential or special damages arising from your use of Nuvira.</li>
+      <li>You're responsible for complying with the laws that apply to you, including export laws.</li>
+    </ul>
+    <h3>About Apple</h3>
+    <ul>
+      <li>This agreement is between you and Skysmind only, not Apple. Skysmind, not Apple, is solely responsible for Nuvira and its content.</li>
+      <li>Apple has no obligation to provide maintenance or support for Nuvira.</li>
+      <li>If Nuvira fails to meet any applicable warranty, you may notify Apple, and Apple will refund the purchase price (if any). To the maximum extent permitted by law, Apple has no other warranty obligation.</li>
+      <li>Skysmind, not Apple, is responsible for addressing any claims relating to Nuvira, including product liability, legal or regulatory compliance, and consumer protection claims.</li>
+      <li>Skysmind, not Apple, is responsible for investigating and defending any third-party claim that Nuvira infringes their intellectual property rights.</li>
+      <li>Apple and its subsidiaries are third-party beneficiaries of this agreement and may enforce it against you.</li>
     </ul>
   </section>
 
 </main>
 
 <footer>
-  &copy; 2026 Nuvira. All rights reserved.
+  <div class="wordmark-sm">NUVIRA</div>
+  &copy; 2026 Skysmind. All rights reserved.
 </footer>
 
 <script>
-  const toggleBtn = document.getElementById('toggle-btn');
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☼' : '☾';
-  });
+  (function () {
+    var btn = document.getElementById('theme-btn');
+    var root = document.documentElement;
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function paint() { btn.textContent = isDark() ? '☼' : '☾'; }
+    try {
+      var saved = localStorage.getItem('nuvira-legal-theme');
+      if (saved) root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    paint();
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('nuvira-legal-theme', next); } catch (e) {}
+      paint();
+    });
+  })();
 </script>
-
 </body>
 </html>
